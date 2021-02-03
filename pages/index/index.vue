@@ -3,9 +3,12 @@
 		<view class="text-area">
 			<text class="title">{{title}}</text>
 		</view>
-		
-		<u-button >默认按钮{{$store.state.name}}</u-button>
-		<u-button type="primary">主要按钮</u-button>
+		<image src="https://7463-tcb-woczjct8zn4cbck0cbea0-5176fc-1304935721.tcb.qcloud.la/images/CgAKR1_gVSOAZdx_AAF-BC5BhKg277.jpg"
+		 mode=""></image>
+		<image src="https://7463-tcb-woczjct8zn4cbck0cbea0-5176fc-1304935721.tcb.qcloud.la/tu.png" mode=""></image>
+
+		<u-button>默认按钮{{$store.state.name}}</u-button>
+		<u-button type="primary" @click="open">主要按钮</u-button>
 		<u-button type="success">成功按钮</u-button>
 		<u-button type="info">信息按钮</u-button>
 		<u-button type="warning">警告按钮</u-button>
@@ -24,7 +27,24 @@
 
 		},
 		methods: {
+			open() {
+				uniCloud.callFunction({
+					name: 'login',
+					data: {
+						name: 'weichen',
+						age: '18'
+					},
+					success(res) {
+						debugger
+						console.log('res222', res)
+					},
+					fail(err) {
+						debugger
+						console.log('err', err)
+					}
+				})
 
+			}
 		}
 	}
 </script>
